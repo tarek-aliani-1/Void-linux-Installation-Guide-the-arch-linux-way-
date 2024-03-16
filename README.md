@@ -1,4 +1,4 @@
-# Void-linux-Installation-Guide-the-arch-linux-way-
+# Void linux Installation Guide (arch linux installation way)
 " Go into Void Linux with our 'Arch Linux-style' guide! 💻🐧"
 
 ## Pre-Installation:
