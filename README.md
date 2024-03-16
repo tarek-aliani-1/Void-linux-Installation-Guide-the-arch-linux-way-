@@ -72,3 +72,35 @@ resources available on disk partitioning, I'll simplify it by outlining two comm
 
 Feel free to adjust the partition sizes based on your needs, although these sizes should suffic.
 
+### 1.10 Prepare the Partitions:
+
+- **ROOT:** Format the main partition where your system files will live. Let's give it a fresh coat of paint
+
+with:
+
+ `mkfs.ext4 /dev/sda1`
+
+- **EFI/BOOT:** This partition is like the front door of your computer. Let's spruce it up with:
+
+ `mkfs.vfat /dev/sda2`
+
+- **SWAP:** Think of this as a little extra space for your computer to think. We'll set it up with:
+
+ `mkswap /dev/sda3`
+
+### 1.11 Mount the Partitions:
+
+- **ROOT:** Now, let's hang up that main partition where our system will live. Use:
+
+ `mount /dev/sda1 /mnt`
+
+- **EFI/BOOT:** Time to set up the entrance! We'll make a spot for it and put up a sign with:
+
+ `mount /dev/sda2 /mnt/boot --mkdir`
+
+- **SWAP:** Finally, let's activate that extra thinking space with:
+
+ `swapon /dev/sda3`
+
+To make sure everything's in its place, give `lsblk` try!
+
