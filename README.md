@@ -154,3 +154,118 @@ write the fstab: \
 `# /dev/sda3` \
 
 `UUID=$SWAP_UUID none swap defaults 0 0`
+
+### 3.2 Chroot:
+
+To chroot into the newly set up environment, run the following commands:
+
+```bash
+
+for dir in dev proc sys run; do mount --rbind /$dir /mnt/$dir; mount --make-rslave /mnt/$dir; done
+
+cp /etc/resolve.conf /mnt/etc/
+
+PS1='(chroot) # ' chroot /mnt/ /bin/bash
+
+### 3.3 Time:
+
+To view all available timezones, you can run the following command:
+
+```bash
+
+ls /usr/share/zoneinfo
+
+This will give you a list of regions and cities representing different timezones.To set up your preferred
+
+timezone, run the command:
+
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+Replace "Region" and "City" with the appropriate values for your timezone. For example, if you're in New
+
+York, you would run:
+
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
+This will configure your system to use the selected timezone.
+
+### 3.4 Localization:
+Edit the `/etc/default/libc-locales` and uncomment your proper locales and then run the command to reconfigure 
+`xbps-reconfigure -f glibc-locales`
+
+### 3.5 Network configuration:
+Create the hostname file:
+`echo "<$HOSTNAME>" > /etc/hostname` 
+
+Add the following lines to `/etc/hosts` 
+`127.0.0.1        localhost` 
+`::1              localhost` 
+`127.0.1.1        <$HOSTNAME>.localdomain        <$HOSTNAME>`
+
+### 3.7 Root password
+Set the root password
+`passwd`
+
+### Other:
+#### Add a user:
+`useradd -mg users -G wheel -s /bin/bash <$USERNAME>`
+
+#### Set the user password:
+`passwd <$USERNAME>`
+
+#### change the root shell
+`chsh -s /bin/bash root`
+
+#### give the user root privileges
+uncomment the line `%wheel ALL=(ALL:ALL) ALL` from visudo, run the command: 
+`EDITOR=nvim visudo`
+
+#### Sync your repo:
+`xbps-install -S` 
+
+This step is not required unless you want to be able to access software that does not have free licenses or if you are a gamer or need 32bit packages 
+`xbps-install void-repo-nonfree` 
+`xbps-install -S` 
+`xbps-install void-repo-multilib` 
+`xbps-install -S`
+
+#### NOTE: You can edit your fstab `/etc/fstab` if you made a typo mistake earlier.
+
+### 3.8 Boot loader
+We would be installing grub 
+BIOS: 
+`xbps-install -S grub` 
+`grub-install --bootloader-id="Void" /dev/sda` 
+NOTE: this command usuelly works, no other options should be passed to the command 
+`grub-mkconfig -o /boot/grub/grub.cfg` 
+
+UEFI: 
+`xbps-install -S grub-x86_64-efi` 
+`grub-install --efi-directory=/boot --bootloader-id="Void" /dev/sda` 
+`grub-mkconfig -o /boot/grub/grub.cfg`
+
+## 4.Finishing touches:
+install any programs you want, 
+if you are using wireless connection install NetworkManager 
+`xbps-install -S NetworkManager` 
+`ln -s /etc/sv/NetworkManager /var/service` 
+`ln -s /etc/sv/dbus /var/service` 
+#### NOTE: when using NetworkManager run it as sudo `sudo nmtui`
+
+
+## 5.Reconfigure programs
+run the following command to make sure all packages are configured correctly: 
+`xbps-reconfigure -fa`
+
+## 6.End
+Exit Chroot: 
+`exit`
+
+Unmount Partitions: 
+`swapoff /dev/sda3` 
+`umount -R /mnt`
+
+Reboot system: 
+`reboot`
+
+## BIG Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... [this is his repo link: ](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation)
