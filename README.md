@@ -187,9 +187,12 @@ Edit the `/etc/default/libc-locales` and uncomment your proper locales and then 
 Create the hostname file:
 `echo "<$HOSTNAME>" > /etc/hostname` 
 
-Add the following lines to `/etc/hosts` 
+Add the following lines to `/etc/hosts`
+
 `127.0.0.1        localhost` 
+
 `::1              localhost` 
+
 `127.0.1.1        <$HOSTNAME>.localdomain        <$HOSTNAME>`
 
 ### 3.7 Root password
@@ -260,6 +263,6 @@ Reboot system:
 
 ### HAVE A GOOD DAY ON VOIDLINUX ;)
 
-### Last Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... [this is his repo link](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation)
+### Last Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... ([his repository Be like 💀](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation))
 
 
