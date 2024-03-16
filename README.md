@@ -125,7 +125,7 @@ Run the following commands:
 run the command:
 `XBPS_ARCH=$ARCH xbps-install -S -R "$REPO" -r /mnt base-system linux-mainline nano` \
 
-you don't have to use nano as your text editor, (like vim or neovim)
+you don't have to use nano as your text editor (like Vim or neovim)
 
 ## 3.Configure the system:
 
@@ -135,7 +135,7 @@ find out the UUID of your partitions: \
 
 `ROOT_UUID=$(blkid -s UUID -o value /dev/sda1)` \
 
-`EFI_UUID=$(blkid -s UUID -o value /dev/sda2)` or `BOOT_UUID=$(blkid -s UUID -o value /dev/sda2)` \
+`EFI_UUID=$(blkid -s UUID -o value /dev/sda2)` or `BOOT_UUID=$(blkid -s UU -o value /dev/sda2)` \
 
 `SWAP_UUID=$(blkid -s UUID -o value /dev/sda3)`
 
@@ -149,9 +149,7 @@ write the fstab: \
 
 `# /dev/sda2` \
 
-`UUID=$EFI_UUID /boot vfat defaults,noatime 0 2` or `UUID=$BOOT_UUID /boot vfat defaults,noatime 0
-
-2` \
+`UUID=$EFI_UUID /boot vfat defaults,noatime 0 2` or `UUID=$BOOT_UUID /boot vfat defnoatime 0 2` \
 
 `# /dev/sda3` \
 
