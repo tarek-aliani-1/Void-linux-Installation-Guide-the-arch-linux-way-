@@ -156,36 +156,26 @@ write the fstab: \
 `UUID=$SWAP_UUID none swap defaults 0 0`
 
 ### 3.2 Chroot:
-
-To chroot into the newly set up environment, run the following commands:
-
-```bash
-
-for dir in dev proc sys run; do mount --rbind /$dir /mnt/$dir; mount --make-rslave /mnt/$dir; done
-
-cp /etc/resolve.conf /mnt/etc/
-
-PS1='(chroot) # ' chroot /mnt/ /bin/bash
+to chroot into the newly setup envirenment run the commands: \
+`for dir in dev proc sys run; do mount --rbind /$dir /mnt/$dir; mount --make-rslave /mnt/$dir; done` \
+`cp /etc/resolve.conf /mnt/etc/` \
+`PS1='(chroot) # ' chroot /mnt/ /bin/bash`
 
 ### 3.3 Time:
 
 To view all available timezones, you can run the following command:
 
-```bash
-
-ls /usr/share/zoneinfo
+`ls /usr/share/zoneinfo`
 
 This will give you a list of regions and cities representing different timezones.To set up your preferred
 
 timezone, run the command:
 
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+`ln -sf /usr/share/zoneinfo/Region/City /etc/localtime`
 
-Replace "Region" and "City" with the appropriate values for your timezone. For example, if you're in New
+Replace "Region" and "City" with the appropriate values for your timezone. For example, if you're in Algiers, you would run:
 
-York, you would run:
-
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+`ln -sf /usr/share/zoneinfo/Africa/Algiers /etc/localtime`
 
 This will configure your system to use the selected timezone.
 
