@@ -1,4 +1,4 @@
-# Void linux Installation Guide (arch linux installation way)
+# Void Linux Installation Guide (arch linux installation way)
 " Go into Void Linux with our 'Arch Linux-style' guide! 💻🐧"
 
 ## Pre-Installation:
@@ -263,6 +263,6 @@ Reboot system:
 
 ### HAVE A GOOD DAY ON VOIDLINUX ;)
 
-### Last Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... ([his repository Be like 💀](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation))
+### Last Note : This is the smaller version for beginners and professionals from the hardest version of my friend @notpistooo ... ([his repository Be like 💀](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation))
 
 
