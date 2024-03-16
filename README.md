@@ -258,4 +258,8 @@ Unmount Partitions:
 Reboot system: 
 `reboot`
 
-## BIG Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... [this is his repo link: ](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation)
+### HAVE A GOOD DAY ON VOIDLINUX ;)
+
+### Last Note : This is the smaller version for beginners ir professionals from the hardest version of my friend @notpistooo ... [this is his repo link](https://github.com/notpistooo/Installing-Void-The-Arch-Way?tab=readme-ov-file#1pre-installation)
+
+
