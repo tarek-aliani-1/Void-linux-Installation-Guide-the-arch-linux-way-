@@ -18,3 +18,31 @@ installation medium you set up. If you have the boot menu disabled, you can chan
 BIOS. Once you boot into Void, log in using root as the username and voidlinux as the password. Start the
 bash shell using the command `PS1='[ W ] # ' /bin/bash`.
 
+## System Configuration:
+
+### 1.5 Setting the Console Keyboard Layout and Font:
+
+- **Keyboard Layout:** To change the layout, use `loadkeys "*Layout*"`. You can find layouts in
+
+`/usr/share/kbd/keymaps`.
+
+- **Changing Font:** Adjust the font with `setfont "*FONT*"`. Reset to default with `setfont`, and enlarge
+
+with `setfont -d`. Terminal fonts are in `/usr/share/kbd/consolefonts/`.
+
+### 1.6 Verifying the Boot Mode:
+
+- Run `cat /sys/firmware/efi/fw_platform_size` to check.
+
+ - **64-bit UEFI:** If it returns 64, it's UEFI with a 64-bit x64 UEFI.
+
+ - **32-bit UEFI:** If it returns 32, it's UEFI with a 32-bit IA32 UEFI.
+
+ - **BIOS/CSM:** If the file doesn't exist, it's BIOS/CSM mode.
+
+### 1.7 Connecting to the Internet:
+
+- **Wireless Setup:** Use `void-installer` to set up the network, then stop the installation. Confirm with
+
+`ping voidlinux.org`.
+
