@@ -117,17 +117,13 @@ Add the following to the link:
 - For musl: `/current/musl`
 
 Run the following commands:
-
-```bash
-
-REPO=https://repo-fastly.voidlinux.org/current
-
-ARCH=x86_64
+1- `REPO=https://repo-fastly.voidlinux.org/current`
+2- `ARCH=x86_64`
 
 ### 2.2 Install essential packages:
 
 run the command:
-
 `XBPS_ARCH=$ARCH xbps-install -S -R "$REPO" -r /mnt base-system linux-mainline nano` \
 
-you don't have to use nano as your text editor, (like vim or neovim)
+you don't have to use nano as your text editor, (likevim or neovim)
+
