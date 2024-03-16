@@ -46,3 +46,29 @@ with `setfont -d`. Terminal fonts are in `/usr/share/kbd/consolefonts/`.
 
 `ping voidlinux.org`.
 
+## Disk Partitioning Guide
+
+### 1.8 Partitioning the Disks:
+
+Before we start, let's identify our disks by listing them with the command `lsblk`. While there are many
+
+resources available on disk partitioning, I'll simplify it by outlining two common setups:
+
+#### EFI GPT Partitioning:
+
+- **/dev/sda1: ROOT (220GB) Linux Filesystem**
+
+- **/dev/sda2: EFI (583MB) EFI System**
+
+- **/dev/sda3: SWAP (3GB) Linux Swap**
+
+#### BIOS MBR Partitioning:
+
+- **/dev/sda1: ROOT (220GB) Linux**
+
+- **/dev/sda2: BOOT (583MB) Linux**
+
+- **/dev/sda3: SWAP (3GB) Linux Swap / Solaris**
+
+Feel free to adjust the partition sizes based on your needs, although these sizes should suffic.
+
