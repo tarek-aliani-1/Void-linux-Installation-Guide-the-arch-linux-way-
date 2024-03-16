@@ -104,3 +104,30 @@ with:
 
 To make sure everything's in its place, give `lsblk` try!
 
+### 2.1 Choose Mirrors:
+
+For a list of mirrors, you can visit the [Mirrors page](https://repo-fastly.voidlinux.org/). We'll go with the Tier
+
+1 globally available mirror: https://repo-fastly.voidlinux.org/
+
+Add the following to the link:
+
+- For glibc: `/current`
+
+- For musl: `/current/musl`
+
+Run the following commands:
+
+```bash
+
+REPO=https://repo-fastly.voidlinux.org/current
+
+ARCH=x86_64
+
+### 2.2 Install essential packages:
+
+run the command:
+
+`XBPS_ARCH=$ARCH xbps-install -S -R "$REPO" -r /mnt base-system linux-mainline nano` \
+
+you don't have to use nano as your text editor, (like vim or neovim)
